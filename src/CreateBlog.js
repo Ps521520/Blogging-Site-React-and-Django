@@ -26,7 +26,8 @@ const CreateBlog = () => {
                     "writer": parseInt(log.id),
                 }
             );
-            console.log(result)
+            console.log(result);
+			alert("successfully created your blog");
             setTitle('');
             setAuthor('');
             setText('');

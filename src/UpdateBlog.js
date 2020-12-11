@@ -35,6 +35,7 @@ const UpdateBlog = () => {
         catch (e) {
             console.log(e);
         }
+		alert("updated successfully back returning to homepage");
         history.push('/admin');
     }
 
