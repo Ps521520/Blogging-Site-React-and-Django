@@ -34,6 +34,7 @@ const Register = () => {
       console.log(data);
       const result = await axios.post(weburl, data);
       console.log(result)
+	  alert("successfully registered");
     }
     catch (e) {
       console.log(e);
