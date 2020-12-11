@@ -6,7 +6,7 @@ from django.db import models
 class Employee(models.Model):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
-    mobileno = models.IntegerField()
+    mobileno = models.CharField(max_length=15)
     email = models.EmailField(max_length=254)
     password = models.CharField(max_length=20)
 
@@ -17,7 +17,7 @@ class Employee(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
-    text = models.CharField(max_length=5000)
+    text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     writer = models.ForeignKey(Employee, verbose_name=(
         "employees"), on_delete=models.CASCADE)
