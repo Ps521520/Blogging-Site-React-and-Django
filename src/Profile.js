@@ -21,7 +21,7 @@ export const Profile = () => {
         'password': ''
     })
 
-    const weburl = `http://localhost:8000/api/employee/${log.id}/`;
+    const weburl = `https://bloggerbs.herokuapp.com/api/employee/${log.id}/`;
 
     const setValue = (e) => {
 

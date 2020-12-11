@@ -8,7 +8,7 @@ const CreateBlog = () => {
 
     const history = useHistory();
     const { log, setLog } = useContext(Usercontext);
-    const weburl = 'http://localhost:8000/api/blog/';
+    const weburl = 'https://bloggerbs.herokuapp.com/api/blog/';
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');

@@ -9,7 +9,7 @@ const Admin = () => {
     const history = useHistory();
     const [data, setData] = useState([]);
     const { log, setLog } = useContext(Usercontext);
-    const weburl = `http://localhost:8000/api/blog/`;
+    const weburl = `https://bloggerbs.herokuapp.com/api/blog/`;
 
     const DeleteData = async (id) => {
         try {

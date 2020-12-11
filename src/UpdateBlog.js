@@ -7,7 +7,7 @@ import { Usercontext } from './Usercontext';
 const UpdateBlog = () => {
     const { log, setLog } = useContext(Usercontext);
     const { id } = useParams();
-    const weburl = `http://localhost:8000/api/blog/${id}/`;
+    const weburl = `https://bloggerbs.herokuapp.com/api/blog/${id}/`;
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');

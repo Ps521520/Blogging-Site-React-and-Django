@@ -13,7 +13,7 @@ const Category = () => {
   const history = useHistory();
   const [data, setData] = useState([]);
   //  const [total, setTotal] = useState([]);
-  const weburl = `http://localhost:8000/api/blog/`;
+  const weburl = `https://bloggerbs.herokuapp.com/api/blog/`;
 
 
 

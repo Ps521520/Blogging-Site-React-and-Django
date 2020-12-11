@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 const Content = () => {
 
   const [data, setData] = useState([]);
-  const weburl = 'http://localhost:8000/api/blog/';
+  const weburl = 'https://bloggerbs.herokuapp.com/api/blog/';
 
 
   const displayData = (list) => {

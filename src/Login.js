@@ -10,7 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
   const history = useHistory();
-  const weburl = 'http://localhost:8000/api/employee/'
+  const weburl = 'https://bloggerbs.herokuapp.com/api/employee/'
 
   const matchData = async (e) => {
     e.preventDefault();

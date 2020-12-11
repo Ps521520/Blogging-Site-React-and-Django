@@ -15,7 +15,7 @@ const Register = () => {
     'password': ''
   })
 
-  const weburl = 'http://localhost:8000/api/employee/';
+  const weburl = 'https://bloggerbs.herokuapp.com/api/employee/';
 
   const setValue = (e) => {
 
