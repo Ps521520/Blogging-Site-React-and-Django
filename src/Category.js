@@ -16,7 +16,6 @@ const Category = () => {
   const weburl = `https://bloggerbs.herokuapp.com/api/blog/`;
 
 
-
   const searchdata = (e) => {
     e.preventDefault()
     const modidata = data.filter((each) => {
@@ -43,6 +42,13 @@ const Category = () => {
   }
 
   const displayData = (list) => {
+    const getimg = (item) => {
+      if (item.image)
+        return <img src={`${item.image}`} alt={item.title} style={{ width: "100%", height: "400px" }} />
+      else
+        return null
+    }
+
     if (list === undefined)
       return null;
     else if (list.length <= 0)
@@ -53,6 +59,7 @@ const Category = () => {
           <h2>{item.title}</h2>
           <label className="lbl">Author Name:{item.author}</label>
           <label className="lbl">Date and Time of Publish:{item.date}</label>
+          {getimg(item)}
           <h5>{item.text}</h5>
           <Link to={`/updateblog/${item.id}`} className="btn btn-success mr-2" id="update" style={{ marginRight: "10px" }} >Update</Link>
           <button onClick={() => { DeleteData(item.id) }} className="btn btn-danger" id="delete" >Delete</button>
@@ -62,6 +69,13 @@ const Category = () => {
   }
 
   const displaytotalData = (list) => {
+    const getimg = (item) => {
+      if (item.image)
+        return <img src={`${item.image}`} alt={item.title} style={{ width: "100%", height: "400px" }} />
+      else
+        return null
+    }
+
     if (list === undefined)
       return null;
     else if (list.length <= 0)
@@ -72,6 +86,7 @@ const Category = () => {
           <h2>{item.title}</h2>
           <label className="lbl">Author Name:{item.author}</label>
           <label className="lbl">Date and Time of Publish:{item.date}</label>
+          {getimg(item)}
           <h5>{item.text}</h5>
         </div >
       ))

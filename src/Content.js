@@ -9,6 +9,13 @@ const Content = () => {
 
 
   const displayData = (list) => {
+	  
+    const getimg = (item) => {
+      if (item.image)
+        return <img src={`${item.image}`} alt={item.title} style={{ width: "100%", height: "400px" }} />
+      else
+        return null
+    }
     if (list === undefined)
       return null;
     return (
@@ -17,6 +24,7 @@ const Content = () => {
           <h2>{item.title}</h2>
           <label className="lbl">Author Name:{item.author}</label>
           <label className="lbl">Date and Time of Publish:{item.date}</label>
+		  {getimg(item)}
           <h5>{item.text}</h5>
         </div >
       ))

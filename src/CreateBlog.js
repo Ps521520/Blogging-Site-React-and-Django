@@ -13,30 +13,32 @@ const CreateBlog = () => {
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
     const [date, setDate] = useState('');
+    const [image, setImage] = useState(null);
 
 
     const submitForm = async (e) => {
         e.preventDefault();
+        console.log(image);
+        const formData = new FormData();
+        formData.append("image", image);
+        formData.append("title", title);
+        formData.append("author", author);
+        formData.append("text", text);
+        formData.append("writer", parseInt(log.id));
         try {
-            const result = await axios.post(weburl,
-                {
-                    "title": title,
-                    "author": author,
-                    "text": text,
-                    "writer": parseInt(log.id),
-                }
-            );
-            console.log(result);
-			alert("successfully created your blog");
+            const result = await axios.post(weburl, formData);
+            console.log(result)
+            alert("successfully created your blog");
             setTitle('');
             setAuthor('');
             setText('');
             setDate('');
+            setImage(null);
         }
         catch (e) {
             console.log(e);
         }
-
+        console.log(formData);
     }
 
     if (log.id === '') {
@@ -60,6 +62,10 @@ const CreateBlog = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <td>Image</td>
+                                        <td><input type="file" name="img" value={image} className="img-responsive" onChange={(e) => { setImage(e.target.files[0]) }} /></td>
+                                    </tr>
                                     <tr>
                                         <td>Title</td>
                                         <td><input type="text" value={title} placeholder="Enter Title Here" className="inpt" onChange={(e) => { setTitle(e.target.value) }} required /></td>

@@ -7,35 +7,38 @@ import { Usercontext } from './Usercontext';
 const UpdateBlog = () => {
     const { log, setLog } = useContext(Usercontext);
     const { id } = useParams();
-    const weburl = `https://bloggerbs.herokuapp.com/api/blog/${id}/`;
+    const weburl = 'https://bloggerbs.herokuapp.com/api/blog/';
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
     const [date, setDate] = useState('');
+    const [image, setImage] = useState(null);
     const history = useHistory();
 
 
     const submitForm = async (e) => {
         e.preventDefault();
+        console.log(image);
+        const formData = new FormData();
+        formData.append("image", image);
+        formData.append("title", title);
+        formData.append("author", author);
+        formData.append("text", text);
+        formData.append("writer", parseInt(log.id));
         try {
-            const result = await axios.put(weburl,
-                {
-                    "title": title,
-                    "author": author,
-                    "text": text,
-                    "writer": log.id
-                }
-            );
+            const result = await axios.put(weburl, formData);
             console.log(result)
             setTitle('');
             setAuthor('');
             setText('');
             setDate('');
+            setImage(null);
         }
         catch (e) {
             console.log(e);
         }
-		alert("updated successfully back returning to homepage");
+        console.log(formData);
+        alert("updated successfully back returning to homepage");
         history.push('/admin');
     }
 
@@ -72,7 +75,7 @@ const UpdateBlog = () => {
                 <Admnav />
                 <div className="container">
                     <div className="content">
-                        <form onSubmit={submitForm} method="post" >
+                        <form onSubmit={submitForm} >
                             <table className="table table-bordered">
                                 <thead>
                                     <tr>
@@ -81,6 +84,10 @@ const UpdateBlog = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <td>Image</td>
+                                        <td><input type="file" name="img" className="img-responsive" onChange={(e) => { setImage(e.target.files[0]) }} /></td>
+                                    </tr>
                                     <tr>
                                         <td>Title</td>
                                         <td><input type="text" value={title} placeholder="Enter Title Here" className="inpt" onChange={(e) => { setTitle(e.target.value) }} required /></td>
