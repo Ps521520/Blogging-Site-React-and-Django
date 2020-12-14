@@ -64,7 +64,7 @@ const CreateBlog = () => {
                                 <tbody>
                                     <tr>
                                         <td>Image</td>
-                                        <td><input type="file" name="img" value={image} className="img-responsive" onChange={(e) => { setImage(e.target.files[0]) }} /></td>
+                                        <td><input type="file" name="img" className="img-responsive" onChange={(e) => { setImage(e.target.files[0]) }} /></td>
                                     </tr>
                                     <tr>
                                         <td>Title</td>
