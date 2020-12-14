@@ -15,7 +15,7 @@ class Employee(models.Model):
 
 
 class Blog(models.Model):
-image = models.ImageField(upload_to='images', blank=True)
+    image = models.ImageField(upload_to='images', blank=True)
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     text = models.TextField()
